@@ -1,0 +1,8 @@
+#! bin/bash
+gcloud compute firewall-rules create allow-https-alb \
+  --direction=INGRESS \
+  --priority=1000 \
+  --network=default \
+  --action=ALLOW \
+  --rules=tcp:443,tcp:80\
+  --target-tags=lb

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+gcloud compute firewall-rules create frontend-fw \
+  --direction=INGRESS \
+  --priority=1000 \
+  --network=default \
+  --allow=tcp:8080 \
+  --target-tags=http-server
+

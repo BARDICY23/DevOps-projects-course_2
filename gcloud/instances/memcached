@@ -1,0 +1,10 @@
+#! bin/bash
+gcloud compute instances create memcached-instance \
+  --zone=us-central1-a \
+  --machine-type=e2-medium \
+  --image-family=debian-12 \
+  --image-project=debian-cloud \
+  --boot-disk-size=30GB \
+  --tags=ssh,backend-server \
+  --metadata-from-file=startup-script=../VMs-user-data/memcache.sh
+

@@ -1,0 +1,7 @@
+#! bin/bash 
+gcloud dns managed-zones create my-private-zone \
+  --description="Private zone for internal services" \
+  --dns-name="myapp.internal." \
+  --visibility="private" \
+  --networks="default"
+

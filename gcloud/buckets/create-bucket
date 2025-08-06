@@ -1,0 +1,8 @@
+#! bin/bash
+
+gcloud storage buckets create gs://ahmed-vprofile-bucket-2025 \
+  --location=us-central1 \
+  --default-storage-class=STANDARD \
+  --uniform-bucket-level-access \
+  --pap
+

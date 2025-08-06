@@ -1,0 +1,9 @@
+#! bin/bash 
+gcloud compute instances create tomcat-instance \
+  --zone=us-central1-a \
+  --machine-type=e2-medium \
+  --image-family=ubuntu-2204-lts \
+  --image-project=ubuntu-os-cloud \
+  --boot-disk-size=20GB \
+  --tags=ssh,http-server \
+  --metadata-from-file startup-script=../VMs-user-data/tomcat.sh
