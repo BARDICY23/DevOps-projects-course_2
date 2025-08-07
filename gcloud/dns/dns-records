@@ -2,19 +2,19 @@
 
 gcloud dns record-sets transaction start --zone="my-private-zone"
 
-gcloud dns record-sets transaction add 10.128.0.10 \
+gcloud dns record-sets transaction add 10.128.0.18 \
   --name="mc01.myapp.internal." \
   --ttl=300 \
   --type=A \
   --zone="my-private-zone"
 
-gcloud dns record-sets transaction add 10.128.0.12 \
+gcloud dns record-sets transaction add 10.128.0.17 \
   --name="db01.myapp.internal." \
   --ttl=300 \
   --type=A \
   --zone="my-private-zone"
 
-gcloud dns record-sets transaction add 10.128.0.9 \
+gcloud dns record-sets transaction add 10.128.0.19 \
   --name="rmq01.myapp.internal." \
   --ttl=300 \
   --type=A \

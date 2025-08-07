@@ -1,0 +1,41 @@
+#! bin/bash
+
+# creating tomcat instance with specific configurations
+gcloud compute instances create tomcat-instance \
+  --zone=us-central1-a \
+  --machine-type=e2-micro \
+  --image-family=ubuntu-2204-lts \
+  --image-project=ubuntu-os-cloud \
+  --boot-disk-size=10GB \
+  --tags=ssh,frontend-server \
+  --metadata-from-file startup-script=../../startup-scripts/tomcat.sh
+
+# creating DataBase instance with specific configurations
+gcloud compute instances create mysql-instance \
+  --zone=us-central1-a \
+  --machine-type=e2-micro \
+  --image-family=debian-12 \
+  --image-project=debian-cloud \
+  --boot-disk-size=10GB \
+  --tags=ssh,backend-server \
+  --metadata-from-file=startup-script=../../startup-scripts/mysql.sh
+
+# creating memcached instance with specific configurations
+gcloud compute instances create memcached-instance \
+  --zone=us-central1-a \
+  --machine-type=e2-micro \
+  --image-family=debian-12 \
+  --image-project=debian-cloud \
+  --boot-disk-size=10GB \
+  --tags=ssh,backend-server \
+  --metadata-from-file=startup-script=../../startup-scripts/memcache.sh
+
+# creating RMQ instance with specific configurations
+gcloud compute instances create rabbitmq-instance \
+  --zone=us-central1-a \
+  --machine-type=e2-micro \
+  --image-family=debian-12 \
+  --image-project=debian-cloud \
+  --boot-disk-size=10GB \
+  --tags=ssh,backend-server \
+  --metadata-from-file=startup-script=../../startup-scripts/rabbitmq.sh

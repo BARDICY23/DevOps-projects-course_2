@@ -5,5 +5,5 @@ gcloud compute instances create tomcat-instance \
   --image-family=ubuntu-2204-lts \
   --image-project=ubuntu-os-cloud \
   --boot-disk-size=20GB \
-  --tags=ssh,http-server \
-  --metadata-from-file startup-script=../VMs-user-data/tomcat.sh
+  --tags=ssh,frontend-server \
+  --metadata-from-file startup-script=../../startup-scripts/tomcat.sh
